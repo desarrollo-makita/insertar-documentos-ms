@@ -33,7 +33,8 @@ async function insertarDocumentos(req , res) {
                 archivo: Archivo,
                 fecha: Fecha,
                 usuario: Usuario,
-                descripcion : Descripcion
+                descripcion : Descripcion,
+                ordenID  : ID_OS
             
             } = documento;
            
@@ -47,7 +48,8 @@ async function insertarDocumentos(req , res) {
                 .input('Fecha', sql.VarChar, formatDate(Fecha))
                 .input('Usuario', sql.VarChar(40), Usuario)
                 .input('Descripcion', sql.VarChar(40), Descripcion)
-                .output('Insertado', sql.Int)
+                input('ID_OS', sql.VarChar(20), ID_OS)
+            2  .output('Insertado', sql.Int)
                 .output('ResultadoID', sql.VarChar)
       
                 .execute('insertaDocumentosSP');
