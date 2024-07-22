@@ -36,3 +36,5 @@
 2024-07-22 15:19:25 [INFO]: Iniciamos la funcion insertarDocumentos [{"tabla":"DOCUMENTO","subtabla":"NOTA DE VTA INTERNA","archivo":"https://api2.telecontrol.com.br/tdocs/document/id/bb939cdcdae1275c23a0e9cc4f6904c7fdeed300164d4e7e3b15e4619e26d050","fecha":"13-01-2021","usuario":"76279534-5","descripcion":"asasas","idPedido":"12321"}]
 2024-07-22 15:19:25 [INFO]: Conexión a la base de datos cerrada
 2024-07-22 15:19:25 [INFO]: Fin de la funcion insertarDocumentos [{"recordsets":[[{"Resultado":"Registro insertado","Insertado":0,"resultadoID":"12321"}]],"recordset":[{"Resultado":"Registro insertado","Insertado":0,"resultadoID":"12321"}],"output":{"Insertado":0,"ResultadoID":"12321"},"rowsAffected":[1,1,1,1,0],"returnValue":0,"data":{"tabla":"DOCUMENTO","subtabla":"NOTA DE VTA INTERNA","archivo":"https://api2.telecontrol.com.br/tdocs/document/id/bb939cdcdae1275c23a0e9cc4f6904c7fdeed300164d4e7e3b15e4619e26d050","fecha":"13-01-2021","usuario":"76279534-5","descripcion":"asasas","idPedido":"12321"}}]
+2024-07-22 16:05:31 [INFO]: Servidor escuchando en el puerto 3023
+2024-07-22 16:08:29 [INFO]: Servidor escuchando en el puerto 3023
