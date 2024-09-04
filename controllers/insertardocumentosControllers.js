@@ -88,11 +88,9 @@ async function insertarDocumentos(req, res) {
   } catch (error) {
     // Manejamos cualquier error ocurrido durante el proceso
     logger.error(`Error en insertarDocumentos: ${error.message}`);
-    res
-      .status(500)
-      .json({
-        error: `Error en el servidor [insertar-documentos-ms]: ${error.message}`,
-      });
+    res.status(500).json({
+      error: `Error en el servidor [insertar-documentos-ms]: ${error.message}`,
+    });
   } finally {
     await closeDatabaseConnection();
   }
@@ -110,12 +108,30 @@ function formatDate(date) {
     return fechaFormateada;
   }
 }
+function generateRandomSpecialChars(length = 3) {
+  const specialChars = "!@#$%^&*()_+[]{}|;:,.<>?";
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * specialChars.length);
+    result += specialChars[randomIndex];
+  }
+  return result;
+}
 
 async function prepareData(data) {
   let request = [];
   for (const element of data) {
     for (const archivo of element.arregloLink) {
       const imagenBinario = await convertImageToBinary(archivo.link); // Asegúrate de usar await aquí
+      // Generar sufijo de 3 caracteres especiales
+      const specialSuffix = generateRandomSpecialChars();
+
+      // Crear el nombre de archivo con el sufijo añadido
+      const fileNameParts = archivo.filename.split(".");
+      const baseName = fileNameParts.slice(0, -1).join("."); // Nombre sin extensión
+      const extension =
+        fileNameParts.length > 1 ? `.${fileNameParts.pop()}` : ""; // Extensión del archivo
+      const nombreArchivoUnico = `${baseName}${specialSuffix}${extension}`;
 
       request.push({
         tabla: "DOCUMENTO",
@@ -126,7 +142,7 @@ async function prepareData(data) {
         descripcion: `Documento de la orden ${element.os}`,
         idPedido: element.idPedido,
         os: element.os,
-        nombreArchivo: archivo.filename,
+        nombreArchivo: nombreArchivoUnico,
         imagenBinario: imagenBinario, // Buffer directamente
       });
     }
