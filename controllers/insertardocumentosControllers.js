@@ -108,12 +108,11 @@ function formatDate(date) {
     return fechaFormateada;
   }
 }
-function generateRandomSpecialChars(length = 3) {
-  const specialChars = "!@#$%^&*()_+[]{}|;:,.<>?";
+function generateRandomNumbers(length = 3) {
   let result = "";
   for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * specialChars.length);
-    result += specialChars[randomIndex];
+    const randomNumber = Math.floor(Math.random() * 10); // Generar un número entre 0 y 9
+    result += randomNumber;
   }
   return result;
 }
@@ -122,7 +121,7 @@ async function prepareData(data) {
   let request = [];
   for (const element of data) {
     for (const archivo of element.arregloLink) {
-      const imagenBinario = await convertImageToBinary(archivo.link); // Asegúrate de usar await aquí
+      const imagenBinario = await convertImageToBinary(archivo.link);
       // Generar sufijo de 3 caracteres especiales
       const specialSuffix = generateRandomSpecialChars();
 
