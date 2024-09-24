@@ -123,7 +123,7 @@ async function prepareData(data) {
     for (const archivo of element.arregloLink) {
       const imagenBinario = await convertImageToBinary(archivo.link);
       // Generar sufijo de 3 caracteres especiales
-      const specialSuffix = generateRandomSpecialChars();
+      const specialSuffix = generateRandomNumbers();
 
       // Crear el nombre de archivo con el sufijo añadido
       const fileNameParts = archivo.filename.split(".");
