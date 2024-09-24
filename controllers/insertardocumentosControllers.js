@@ -161,8 +161,6 @@ async function convertImageToBinary(url) {
       throw new Error("El buffer de imagen no es válido.");
     }
 
-    console.log("Buffer de imagen:", imageBuffer);
-
     // Devolver el buffer directamente
     return imageBuffer;
   } catch (error) {
