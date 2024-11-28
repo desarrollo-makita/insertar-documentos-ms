@@ -15,7 +15,7 @@ const axios = require("axios");
 async function insertarDocumentos(req, res) {
   let data = req.body;
   logger.info(
-    `Iniciamos la función insertarDocumentos ${JSON.stringify(data)}`
+    `Iniciamos la función insertarDocumentos `
   );
   let result;
   let responseDataList;
@@ -28,7 +28,6 @@ async function insertarDocumentos(req, res) {
     // Preparar datos
     responseDataList = await prepareData(data); // Asegúrate de usar await aquí
 
-    console.log(responseDataList);
 
     // Insertar datos
     for (const documento of responseDataList) {
