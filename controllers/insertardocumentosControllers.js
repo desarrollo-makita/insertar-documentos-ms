@@ -81,7 +81,7 @@ async function insertarDocumentos(req, res) {
     }
 
     logger.info(
-      `Fin de la función insertarDocumentos ${JSON.stringify(response)}`
+      `Fin de la función insertarDocumentos `
     );
     res.status(200).json(response);
   } catch (error) {
